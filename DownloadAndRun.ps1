@@ -49,6 +49,7 @@ if ($choice -eq 0) {
         ArgumentList = "-ExecutionPolicy Bypass -WindowStyle Hidden -Сommand &{$scriptBlock}"
         Verb         = "RunAs"
     }
+    Write-Verbose -Message "Registering Updater task..." -Verbose
     Start-Process @Parameters
     #endregion Updater task 
 }
