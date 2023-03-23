@@ -12,4 +12,4 @@ IWR -UseB "https://raw.githubusercontent.com/SunsetTechuila/AM-Win10-Installer/m
 
 Apple Music isn't officially supports Windows 10, but there are really no technical barriers. You just need to edit the manifest and it will install and work fine.
 
-This script does everything automatically and provides a weekly check for updates and their automatic installation if available.
+This script does everything automatically and provides a weekly check for updates and their installation if available.
