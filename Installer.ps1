@@ -144,7 +144,7 @@ Add-AppxPackage -Register $Env:LOCALAPPDATA\AppleMusic\AppxManifest.xml
 #region Clean Up
 Write-Verbose -Message "Cleaning Up..." -Verbose
 
-Remove-Item -Path $Env:TEMP\windowsappruntimeinstall-x64.exe, $Env:TEMP\AppleMusic.zip, $Env:TEMP\AppleMusic -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path $Env:TEMP\windowsappruntimeinstall-x64.exe, $Env:TEMP\AppleMusic.zip, $Env:TEMP\AppleMusic, $Env:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx -Recurse -Force -ErrorAction SilentlyContinue
 #endregion Clean Up
 
 #region Final message
