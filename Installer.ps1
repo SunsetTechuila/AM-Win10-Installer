@@ -68,7 +68,7 @@ if (-not ($vcLibs -and $vcLibsUwp)) {
     Invoke-WebRequest @Parameters
 
     Write-Verbose -Message "Installing VCLibs..." -Verbose
-    ."$Env:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx"
+    Add-AppxPackage -Path "$Env:TEMP\Microsoft.VCLibs.x64.14.00.Desktop.appx"
 }
 #endregion VCLibs
 
