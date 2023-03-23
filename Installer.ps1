@@ -59,7 +59,7 @@ if (-not ($installed)) {
 $vcLibs = Get-AppxPackage Microsoft.VCLibs.140.00 | Where-Object -Property Architecture -EQ "X64"
 $vcLibsUwp = Get-AppxPackage Microsoft.VCLibs.140.00.UWPDesktop | Where-Object -Property Architecture -EQ "X64"
 
-if (($vcLibs -and $vcLibsUwp) -ne $true) {
+if (-not ($vcLibs -and $vcLibsUwp)) {
     $Parameters = @{
         Uri             = "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx"
         UseBasicParsing = $true
