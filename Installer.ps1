@@ -1,14 +1,18 @@
 #Requires -RunAsAdministrator
 #Requires -PSEdition Desktop
 
+param([switch]$SkipAMCheck)
+
 #region Misc
 $ErrorActionPreference = "Stop"
 [Console]::Title = "Apple Music Win10 Installer"
 #endregion Misc
 
 #region Check Apple Music installation
-if (Get-AppxPackage AppleInc.AppleMusic*) {
-    Throw "Apple Music is already installed!"
+if (-not ($SkipAMCheck)) {
+    if (Get-AppxPackage AppleInc.AppleMusic*) {
+        Throw "Apple Music is already installed!"
+    }
 }
 #endregion Check Apple Music installation
 
