@@ -1,15 +1,20 @@
 $ErrorActionPreference = "Stop"
 
+#region Cleaning
 Remove-Item -Path $Env:LOCALAPPDATA\AM-Win10-Installer -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
 New-Item -Path $Env:LOCALAPPDATA\AM-Win10-Installer -ItemType Directory | Out-Null
+#endregion Cleaning
 
+#region Installer
 $Parameters = @{
     Uri             = "https://raw.githubusercontent.com/SunsetTechuila/AM-Win10-Installer/main/Installer.ps1"
     UseBasicParsing = $true
     OutFile         = "$Env:LOCALAPPDATA\AM-Win10-Installer\Installer.ps1"
 }
 Invoke-WebRequest @Parameters
+#endregion Installer
 
+#region Updater
 Write-Host -Object "Updates via Microsoft Store won't avalible"
 $choice = $host.UI.PromptForChoice("", "Do you want to install auto updater for Apple Music?", ("&Yes", "&No"), 0)
 if ($choice -eq 0) {
@@ -31,6 +36,7 @@ if ($choice -eq 0) {
         Start-Sleep -Seconds 1
         Start-ScheduledTask -TaskName $name
 }
+#endregion Updater
 
 Start-Process -FilePath powershell -ArgumentList "-ExecutionPolicy Bypass -File $Env:LOCALAPPDATA\AM-Win10-Installer\Installer.ps1" -Verb RunAs
 
